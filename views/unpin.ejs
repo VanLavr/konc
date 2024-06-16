@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="../public/scripts/unpin.js"></script>
+    <title>Unpin</title>
+</head>
+<body>
+    <a href="http://localhost:3000/">main</a>
+    <a href="http://localhost:3000/professors">unpin</a>
+    <a href="http://localhost:3000/addStudent">add student</a>
+    <div>
+        <ul>
+            <% for (let i = 0; i < arr.length; i++) { %>
+                <li>
+                    <div id="<%= arr[i].id %>">
+                        <div><%= arr[i].name %></div>
+                        <ul>
+                            <% arr[i].students.forEach(function(record) { %>
+                                <li>
+                                    <div id="<%= record.id %>">
+                                        <div><%= record.name %></div>
+                                        <button onclick="unpin('<%= record.id %>')">unpin</button>
+                                    </div>
+                                </li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>

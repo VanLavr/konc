@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition</title>
+    <script defer src="../public/scripts/addStudent.js"></script>
+</head>
+<body>
+    <a href="http://localhost:3000/">main</a>
+    <a href="http://localhost:3000/professors">unpin</a>
+    <a href="http://localhost:3000/addStudent">add student</a>
+    <div>
+        <input type="text" id="name" placeholder="name">
+        <input type="text" id="theme" placeholder="theme">
+        <select id="sel">
+            <% arr.forEach(function(record) { %>
+                <option id="<%= record.id %>">
+                    <%= record.name %>
+                </option>
+            <% }); %>
+        </select>
+        <button onclick="add()">add a new student</button>
+    </div>
+</body>
+</html>

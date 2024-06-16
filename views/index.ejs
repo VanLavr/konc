@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    <a href="http://localhost:3000/">main</a>
+    <a href="http://localhost:3000/professors">unpin</a>
+    <a href="http://localhost:3000/addStudent">add student</a>
+    <div>
+        <ul>
+            <% arr.forEach(function(record) { %>
+                <li>
+                    <div id="<%= record.student_id %>">
+                        <div><%= record.student_name %></div>
+                        <p><%= record.specialization %></p>
+                        <p><%= record.professor_name %></p>
+                        <small><%= record.graduation_year %></small>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
