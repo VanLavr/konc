@@ -1,3 +1,10 @@
+const successMSG = `
+    <div id="inserted">
+        <p style="color: red;">success</p>
+        <button onclick="toMain()">go to the main page</button>
+    </div>
+    `
+
 async function add() {
     let name = document.getElementById('name').value
     let theme = document.getElementById('theme').value
@@ -51,9 +58,17 @@ async function add() {
     const response = await fetch(request)
     console.log(response)
     if (response.status === 200) {
-        window.location.replace('http://localhost:3000/')
+        const isInsertedAlready = document.getElementById('inserted')
+        if (isInsertedAlready === null) {
+            const base = document.getElementById('base')
+            base.insertAdjacentHTML('afterend', successMSG)
+        }
     } else {
         console.log(response)
         alert('oops...')
     }
+}
+
+function toMain() {
+    window.location.replace('http://localhost:3000/')
 }
